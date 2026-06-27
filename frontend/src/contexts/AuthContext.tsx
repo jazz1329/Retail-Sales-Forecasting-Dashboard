@@ -22,7 +22,8 @@ interface AuthContextType {
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 // Set default base URL for API requests
-axios.defaults.baseURL = import.meta.env.VITE_API_URL || 'http://localhost:8000/api/v1';
+axios.defaults.baseURL =
+  import.meta.env.VITE_API_URL || "https://retail-sales-forecasting-dashboard.onrender.com/api/v1";
 
 export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
   const [user, setUser] = useState<User | null>(null);
