@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap');
+
+@import "tailwindcss";
+
+@theme {
+  --color-brand-50: #f5f7ff;
+  --color-brand-100: #ebf0ff;
+  --color-brand-200: #d6e0ff;
+  --color-brand-300: #adc2ff;
+  --color-brand-400: #7599ff;
+  --color-brand-500: #3b66f5;
+  --color-brand-600: #2546db;
+  --color-brand-700: #1b32b3;
+  --color-brand-800: #15258f;
+  --color-brand-900: #111e6e;
+
+  --color-dark-50: #f8fafc;
+  --color-dark-100: #f1f5f9;
+  --color-dark-200: #e2e8f0;
+  --color-dark-300: #cbd5e1;
+  --color-dark-400: #94a3b8;
+  --color-dark-500: #64748b;
+  --color-dark-600: #475569;
+  --color-dark-700: #334155;
+  --color-dark-800: #1e293b;
+  --color-dark-900: #0f172a;
+  --color-dark-950: #060a12;
+}
+
+@layer base {
+  body {
+    font-family: 'Outfit', sans-serif;
+    @apply antialiased transition-colors duration-300 text-slate-700 dark:text-slate-200 bg-slate-50 dark:bg-dark-950;
+  }
+}
+
+/* Glassmorphism Premium Cards */
+.glass-card {
+  @apply backdrop-blur-xl border transition-all duration-300;
+  background: rgba(255, 255, 255, 0.45);
+  border-color: rgba(226, 232, 240, 0.55);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.03);
+}
+
+.dark .glass-card {
+  background: rgba(13, 20, 38, 0.45);
+  border-color: rgba(255, 255, 255, 0.04);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.35);
+}
+
+/* Hover glow effects for cards */
+.glass-card:hover {
+  @apply border-brand-500/20 shadow-lg shadow-brand-500/5;
+  transform: translateY(-2px);
+}
+
+.dark .glass-card:hover {
+  @apply border-brand-500/10 shadow-lg shadow-brand-500/10;
+}
+
+/* Custom modern scrollbars */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply rounded-full bg-slate-300 dark:bg-slate-800 hover:bg-slate-400 dark:hover:bg-slate-700 transition-colors;
+}
+
+/* Heatmap Grid Cell */
+.heatmap-cell {
+  @apply aspect-square rounded-lg transition-all duration-300 cursor-pointer hover:scale-105 hover:ring-2 hover:ring-brand-500/30;
+}
+
+/* Dynamic Radial Gradients */
+.page-bg-gradient {
+  background-image: 
+    radial-gradient(at 0% 0%, rgba(59, 102, 245, 0.03) 0px, transparent 50%),
+    radial-gradient(at 100% 100%, rgba(99, 102, 241, 0.03) 0px, transparent 50%),
+    radial-gradient(at 50% 0%, rgba(168, 85, 247, 0.02) 0px, transparent 50%);
+  @apply bg-slate-50 dark:bg-[#060a12];
+}
+
+/* Button Glows */
+.btn-glow {
+  position: relative;
+}
+
+.btn-glow::after {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  background: linear-gradient(90deg, #3b66f5, #a855f7, #06b6d4);
+  border-radius: inherit;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.btn-glow:hover::after {
+  opacity: 1;
+}

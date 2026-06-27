@@ -1,0 +1,49 @@
+version: '3.8'
+
+services:
+  db:
+    image: mysql:8.0
+    container_name: retail_mysql_db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: retail_forecasting_db
+      MYSQL_USER: retail_user
+      MYSQL_PASSWORD: retail_password
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile.backend
+    container_name: retail_backend_api
+    restart: always
+    environment:
+      - DATABASE_URL=mysql+pymysql://retail_user:retail_password@db/retail_forecasting_db
+      - JWT_SECRET_KEY=super_secret_retail_forecast_dashboard_key_2026
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    # Command to wait for db, create tables, seed historical data and run uvicorn server
+    command: >
+      sh -c "sleep 10 &&
+            python database/db_init.py &&
+            uvicorn app.main:app --host 0.0.0.0 --port 8000"
+
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile.frontend
+    container_name: retail_frontend_web
+    restart: always
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+
+volumes:
+  mysql_data:

@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: retail-sales-forecast-backend
+    env: python
+    plan: free
+    buildCommand: pip install -r requirements.txt && pip install email-validator && python database/db_init.py
+    startCommand: PYTHONPATH=backend uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: DATABASE_URL
+        value: sqlite:///./retail.db
+      - key: JWT_SECRET_KEY
+        generateValue: true
+      - key: CORS_ORIGINS
+        value: "*"
