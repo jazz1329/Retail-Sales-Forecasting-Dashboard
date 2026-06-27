@@ -1,8 +1,8 @@
-# 🚀 PredictiveRetail: AI Sales Forecasting Dashboard
+# 🚀 PredictiveRetail: AI-Powered Retail Sales Forecasting Dashboard
 
-PredictiveRetail is a **production-ready Full Stack AI-powered Retail Sales Forecasting Dashboard** that enables retailers to monitor sales, inventory, customer analytics, and machine learning-based sales forecasts through an interactive web application.
+PredictiveRetail is a **production-ready Full Stack AI-powered Retail Sales Forecasting Dashboard** that enables retailers to monitor sales performance, inventory, customer analytics, and machine learning-based sales forecasts through a modern web application.
 
-The application is built using **FastAPI**, **React**, **TypeScript**, **SQLAlchemy**, **Scikit-learn**, and **SQLite**, making it suitable for both academic projects and portfolio demonstrations.
+Built using **FastAPI, React, TypeScript, SQLAlchemy, Scikit-learn, SQLite, Tailwind CSS, and Vite**, this project demonstrates a complete end-to-end SaaS application suitable for academic projects, portfolios, and full-stack development showcases.
 
 ---
 
@@ -10,15 +10,37 @@ The application is built using **FastAPI**, **React**, **TypeScript**, **SQLAlch
 
 ### 🖥️ Frontend
 
-**https://retail-sales-forecasting-dashboard.vercel.app/**
+https://retail-sales-forecasting-dashboard.vercel.app/
 
 ### ⚙️ Backend API
 
-**https://retail-sales-forecasting-dashboard.onrender.com**
+https://retail-sales-forecasting-dashboard.onrender.com
 
 ### 📚 Swagger API Documentation
 
-**https://retail-sales-forecasting-dashboard.onrender.com/docs**
+https://retail-sales-forecasting-dashboard.onrender.com/docs
+
+---
+
+# 🔑 Demo Credentials
+
+### Admin
+
+**Email:** `admin@retail.com`
+
+**Password:** `adminpassword`
+
+### Manager
+
+**Email:** `manager@retail.com`
+
+**Password:** `managerpassword`
+
+### Viewer
+
+**Email:** `viewer@retail.com`
+
+**Password:** `viewerpassword`
 
 ---
 
@@ -27,10 +49,11 @@ The application is built using **FastAPI**, **React**, **TypeScript**, **SQLAlch
 ## 🔐 Authentication & Authorization
 
 * JWT Authentication
+* Secure Login
 * Role-Based Access Control
-* Admin
-* Manager
-* Viewer
+* Admin Dashboard
+* Manager Dashboard
+* Viewer Dashboard
 
 ---
 
@@ -38,19 +61,19 @@ The application is built using **FastAPI**, **React**, **TypeScript**, **SQLAlch
 
 * Revenue KPIs
 * Sales KPIs
-* Average Order Value
 * Profit Margin
-* Growth Percentage
+* Monthly Revenue
+* Revenue Growth
 * Customer Analytics
-* Revenue Trends
-* Monthly Sales Charts
-* Region-wise Analysis
+* Regional Performance
+* Interactive Charts
+* Sales Trend Analysis
 
 ---
 
 ## 📦 Product Management
 
-* Create Products
+* Add Products
 * Update Products
 * Delete Products
 * Product Search
@@ -63,7 +86,8 @@ The application is built using **FastAPI**, **React**, **TypeScript**, **SQLAlch
 
 * Customer CRUD
 * Customer Segmentation
-* Regional Analysis
+* Customer Analytics
+* Regional Distribution
 
 ---
 
@@ -72,7 +96,7 @@ The application is built using **FastAPI**, **React**, **TypeScript**, **SQLAlch
 * Create Orders
 * View Orders
 * Cancel Orders
-* Order Details
+* Order History
 * Automatic Total Calculation
 
 ---
@@ -80,31 +104,31 @@ The application is built using **FastAPI**, **React**, **TypeScript**, **SQLAlch
 ## 📈 Inventory Management
 
 * Stock Monitoring
-* Low Stock Detection
-* Automatic Reorder
-* Bulk Reorder
+* Low Stock Alerts
+* Automatic Reorder Suggestions
+* Inventory Reports
 
 ---
 
 ## 🤖 AI Sales Forecasting
 
-* Random Forest Regressor
-* Forecast up to 365 Days
-* Confidence Intervals
+* Random Forest Regression
+* Sales Forecast Generation
+* Forecast Visualization
 * Model Retraining
+* Confidence Analysis
 * MAE
 * RMSE
 * R² Score
-* Forecast Charts
 
 ---
 
-## 📁 Data Import & Export
+## 📁 Data Management
 
-* CSV Upload
-* Excel Upload
-* Product Import
-* Customer Import
+* CSV Import
+* Excel Import
+* Product Upload
+* Customer Upload
 * Orders Export
 
 ---
@@ -117,10 +141,11 @@ The application is built using **FastAPI**, **React**, **TypeScript**, **SQLAlch
 * TypeScript
 * Vite
 * Tailwind CSS
+* React Router
 * Axios
 * Recharts
 * Framer Motion
-* Lucide Icons
+* Lucide React
 
 ---
 
@@ -134,6 +159,7 @@ The application is built using **FastAPI**, **React**, **TypeScript**, **SQLAlch
 * Pandas
 * NumPy
 * Scikit-learn
+* Uvicorn
 
 ---
 
@@ -172,10 +198,8 @@ Retail-Sales-Forecasting-Dashboard
 ├── frontend
 │   ├── src
 │   ├── public
+│   ├── package.json
 │   └── vite.config.ts
-│
-├── database
-│   └── db_init.py
 │
 ├── dataset
 ├── requirements.txt
@@ -190,23 +214,19 @@ Retail-Sales-Forecasting-Dashboard
 
 ```bash
 git clone https://github.com/jazz1329/Retail-Sales-Forecasting-Dashboard.git
-```
 
-```bash
 cd Retail-Sales-Forecasting-Dashboard
 ```
 
 ---
 
-## Backend
+## Backend Setup
 
-Create Virtual Environment
+### Create Virtual Environment
 
 ```bash
 python -m venv venv
 ```
-
-Activate Environment
 
 ### Windows
 
@@ -220,13 +240,13 @@ venv\Scripts\activate
 source venv/bin/activate
 ```
 
-Install Dependencies
+### Install Dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-Run Backend
+### Run Backend
 
 ```bash
 cd backend
@@ -234,9 +254,21 @@ cd backend
 uvicorn app.main:app --reload
 ```
 
+Backend:
+
+```text
+http://localhost:8000
+```
+
+Swagger Docs:
+
+```text
+http://localhost:8000/docs
+```
+
 ---
 
-## Frontend
+## Frontend Setup
 
 ```bash
 cd frontend
@@ -246,89 +278,63 @@ npm install
 npm run dev
 ```
 
+Frontend:
+
+```text
+http://localhost:5173
+```
+
 ---
 
-# 📚 API Endpoints
+# ⚙️ Environment Variables
 
-### Authentication
+## Frontend (.env)
 
-* Register
-* Login
+```env
+VITE_API_URL=https://retail-sales-forecasting-dashboard.onrender.com
+```
 
-### Dashboard
+---
 
-* KPIs
-* Charts
+# 📚 API Modules
 
-### Products
-
-* CRUD Operations
-
-### Customers
-
-* CRUD Operations
-
-### Orders
-
-* CRUD Operations
-
-### Inventory
-
-* Stock Monitoring
-* Reorder
-
-### Forecast
-
-* Forecast Data
-* Retrain Model
-* Forecast Metrics
-
-### Data
-
-* Upload CSV/Excel
-* Export Orders
+* Authentication
+* Dashboard
+* Products
+* Customers
+* Orders
+* Inventory
+* Forecasting
+* Reports
+* Data Import & Export
 
 ---
 
 # 📊 Machine Learning
 
-The forecasting module uses **Random Forest Regression** trained on historical retail sales data.
+The forecasting engine uses a **Random Forest Regression** model trained on historical retail sales data to predict future sales performance.
 
-Evaluation Metrics include:
+### Evaluation Metrics
 
-* MAE
-* RMSE
+* MAE (Mean Absolute Error)
+* RMSE (Root Mean Squared Error)
 * R² Score
 
-Forecasts are automatically generated for future sales periods and visualized within the dashboard.
+Forecasts are generated dynamically and visualized using interactive charts to help retailers make informed business decisions.
 
 ---
 
-# 📸 Screenshots
-
-Add screenshots of:
-
-* Landing Page
-* Dashboard
-* Analytics
-* Forecast
-* Inventory
-* Login
-* Orders
-* Products
-
----
-
-# ⭐ Future Improvements
+# ⭐ Future Enhancements
 
 * PostgreSQL Support
 * Docker Deployment
 * Redis Caching
-* Celery Background Jobs
+* Celery Background Tasks
 * Email Notifications
-* Advanced ML Models
+* XGBoost & LSTM Forecasting
 * Multi-Tenant SaaS Architecture
 * AWS Deployment
+* CI/CD Pipeline
 
 ---
 
@@ -336,11 +342,20 @@ Add screenshots of:
 
 **Jaskirat Singh**
 
-GitHub:
-https://github.com/jazz1329
+Computer Science Engineering (Data Science)
+
+Chandigarh University
+
+GitHub: https://github.com/jazz1329
 
 ---
 
-# ⭐ If you like this project
+# 📄 License
 
-Please consider giving it a **Star ⭐** on GitHub.
+This project is licensed under the MIT License.
+
+---
+
+# ⭐ Support
+
+If you found this project useful, consider giving it a **⭐ Star** on GitHub to support the project and future improvements.
